@@ -28,17 +28,20 @@ public class GoogleSearchPageObject extends BasePage {
     public GoogleSearchPageObject sendSearchQueryAndSubmit(String input) {
         waitForVisible(searchBox, 10);
         setKeys(searchBox, input + Keys.ENTER);
+        log("Search query " + input);
         return this;
     }
 
     public GoogleSearchPageObject switchToImagesTab() {
-        click(imagesTopNavigationLink);
+        javaScriptClick(imagesTopNavigationLink);
+        log("Clicking images");
         return this;
     }
 
     public GoogleSearchPageObject clickToolsButton() {
 
-        click(toolsButton);
+        javaScriptClick(toolsButton);
+        log("Open Tools menu");
         return this;
     }
 
@@ -46,21 +49,24 @@ public class GoogleSearchPageObject extends BasePage {
         waitForVisible(sizeToolsButton, 10);
         javaScriptClick(sizeToolsButton);
         waitForVisible(largeSizeOptionInTools, 10);
-        click(largeSizeOptionInTools);
+        javaScriptClick(largeSizeOptionInTools);
+        log("Set images Large size");
         return this;
     }
 
     public GoogleSearchPageObject setBlackAndWhiteColor() {
-        click(colorToolsButton);
+        javaScriptClick(colorToolsButton);
         waitForVisible(blackAndWhiteOptionInTools, 10);
-        click(blackAndWhiteOptionInTools);
+        javaScriptClick(blackAndWhiteOptionInTools);
+        log("Set images Black and White color");
         return this;
     }
 
     public GoogleSearchPageObject setClipArtType() {
-        click(typeToolsButton);
+        javaScriptClick(typeToolsButton);
         waitForVisible(clipArtTypeOptionInTools, 10);
-        click(clipArtTypeOptionInTools);
+        javaScriptClick(clipArtTypeOptionInTools);
+        log("Set images Clip Art type");
         return this;
     }
 
@@ -69,11 +75,13 @@ public class GoogleSearchPageObject extends BasePage {
         for (int i = 0; i < 6; i++) {
             clickInCollection(listOfImages.get(i));
         }
+        log("Switch between 5 images");
         return this;
     }
 
     public GoogleSearchPageObject clickOnVisitButton() {
         javaScriptClick(visitSideBarButton);
+        log("Click on the 'Visit' button and open a new tab");
         return this;
     }
 

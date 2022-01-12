@@ -23,10 +23,6 @@ public class BasePage {
         webDriver.findElement(locator).sendKeys(input);
     }
 
-    public void click(By locator) {
-        webDriver.findElement(locator).click();
-    }
-
     public void waitForVisible(By locator, int timeWait) {
 
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(timeWait));
@@ -46,4 +42,9 @@ public class BasePage {
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
     }
+
+    protected void log(String log) {
+        System.out.println(log);
+    }
+
 }
